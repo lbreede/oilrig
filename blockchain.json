@@ -1,0 +1,112 @@
+{
+    "block_reward": 5000,
+    "chain": [
+        {
+            "block_hash": "00ac77d8d8e4f5237a9605cc564540b6a728acf9407a555d0bebdaca5b213123",
+            "nonce": 799,
+            "previous_hash": "0",
+            "timestamp": "2023-02-14T15:22:41.083169",
+            "transactions": [
+                {
+                    "amount": 5000,
+                    "receiver": "satoshi",
+                    "sender": null
+                }
+            ]
+        },
+        {
+            "block_hash": "0095e6ea327a2ef2b511bb9eb5bbe5dba28c4b36e5a31b8c698092add6f5048c",
+            "nonce": 22,
+            "previous_hash": "00ac77d8d8e4f5237a9605cc564540b6a728acf9407a555d0bebdaca5b213123",
+            "timestamp": "2023-02-14T15:22:41.089136",
+            "transactions": [
+                {
+                    "amount": 5000,
+                    "receiver": "ALICE",
+                    "sender": null
+                }
+            ]
+        },
+        {
+            "block_hash": "0050ca88f23fbef205f96c976b0c9440abe9170801de19d19df1e530750ef2cc",
+            "nonce": 225,
+            "previous_hash": "0095e6ea327a2ef2b511bb9eb5bbe5dba28c4b36e5a31b8c698092add6f5048c",
+            "timestamp": "2023-02-14T15:22:41.089421",
+            "transactions": [
+                {
+                    "amount": 5000,
+                    "receiver": "ALICE",
+                    "sender": null
+                }
+            ]
+        },
+        {
+            "block_hash": "002f9de8a8a7c9671b08a101b77637eaa6c4243970e58b2b01792e8b4adc11ca",
+            "nonce": 53,
+            "previous_hash": "0050ca88f23fbef205f96c976b0c9440abe9170801de19d19df1e530750ef2cc",
+            "timestamp": "2023-02-14T15:22:41.091072",
+            "transactions": [
+                {
+                    "amount": 5000,
+                    "receiver": "ALICE",
+                    "sender": null
+                }
+            ]
+        },
+        {
+            "block_hash": "004bbed13c5bfaac57ba732fcf47652ba95a8e6926d9e7f22b6c7514f98766b3",
+            "nonce": 210,
+            "previous_hash": "002f9de8a8a7c9671b08a101b77637eaa6c4243970e58b2b01792e8b4adc11ca",
+            "timestamp": "2023-02-14T15:22:41.091595",
+            "transactions": [
+                {
+                    "amount": 5000,
+                    "receiver": "CHARLIE",
+                    "sender": null
+                },
+                {
+                    "amount": 1000,
+                    "receiver": "BOB",
+                    "sender": "ALICE"
+                },
+                {
+                    "amount": 500,
+                    "receiver": "CHARLIE",
+                    "sender": "BOB"
+                }
+            ]
+        },
+        {
+            "block_hash": "005034a0774d3b6a71a2ca7d9c8eefc4e39e52103737309e45bb8927c2f8915b",
+            "nonce": 86,
+            "previous_hash": "004bbed13c5bfaac57ba732fcf47652ba95a8e6926d9e7f22b6c7514f98766b3",
+            "timestamp": "2023-02-14T15:22:41.093643",
+            "transactions": [
+                {
+                    "amount": 5000,
+                    "receiver": "ALICE",
+                    "sender": null
+                },
+                {
+                    "amount": 500,
+                    "receiver": "CHARLIE",
+                    "sender": "BOB"
+                }
+            ]
+        },
+        {
+            "block_hash": "00ca876dd881e871b9919d98304a000a69f5c6ad39bc26a727c1a2cbe41f9ee6",
+            "nonce": 261,
+            "previous_hash": "005034a0774d3b6a71a2ca7d9c8eefc4e39e52103737309e45bb8927c2f8915b",
+            "timestamp": "2023-02-14T15:22:41.094400",
+            "transactions": [
+                {
+                    "amount": 5000,
+                    "receiver": "ALICE",
+                    "sender": null
+                }
+            ]
+        }
+    ],
+    "pending_transactions": []
+}

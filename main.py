@@ -1,5 +1,4 @@
 import logging
-import random
 import time
 
 from chain import Chain
@@ -16,7 +15,7 @@ logging.addLevelName(20, "INFO".center(10))
 logging.addLevelName(30, "WARNING".center(10))
 
 chain = Chain()
-# chain = Chain(filepath="src/blockchain_lbreede/blockchain.json")
+# chain = Chain(filepath="blockchain.json")
 
 
 def mine_block(miner: str) -> None:
