@@ -14,19 +14,35 @@ logging.addLevelName(10, "DEBUG".center(10))
 logging.addLevelName(20, "INFO".center(10))
 logging.addLevelName(30, "WARNING".center(10))
 
-chain = Chain()
-# chain = Chain(filepath="blockchain.json")
+# chain = Chain()
+chain = Chain(filepath="blockchain.json")
 
 
 def mine_block(miner: str) -> None:
+    """Mine a new block. The miner will be awarded with a certain amount of OIL.
+
+    Args:
+        miner (str): The name of the miner
+    """
     block = chain.add_block(miner)
     award = block.transactions[0]["amount"]
     logger.info(
-        "MINE | %r mined a new block and was awarded %.2f LTC", miner, award / 100
+        "MINE | %r mined a new block and was awarded %.2f OIL", miner, award / 100
     )
 
 
 def get_gains(name: str, sender: str, receiver: str, amount: int) -> int:
+    """Get the gains of a user
+
+    Args:
+        name (str): The name of the user
+        sender (str): The name of the sender
+        receiver (str): The name of the receiver
+        amount (int): The amount of money
+
+    Returns:
+        int: The gains of the user
+    """
     balance = 0
     balance += amount if receiver == name else 0
     balance -= amount if sender == name else 0
@@ -71,7 +87,7 @@ def visualize_balance(name: str, max_balance: int = 100_000):
             n_symbol_off = 88 - n_symbol_on
             balance_fmt = f"{balance / 100:.2f}".ljust(6)
             print(
-                f"Alice - Block {i + 1:03} - Tx {j + 1:03} - {balance_fmt} LTC [{'#' * n_symbol_on}{' ' * n_symbol_off}]"
+                f"Alice - Block {i + 1:03} - Tx {j + 1:03} - {balance_fmt} OIL [{'#' * n_symbol_on}{' ' * n_symbol_off}]"
             )
             time.sleep(0.2)
     print("======")
@@ -83,7 +99,7 @@ def send_money(
     balance = get_balance(sender, include_pending)
     if amount > balance:
         logger.warning(
-            "SEND | %r can't send %.2f LTC to %r. %r has a balance of %.2f",
+            "SEND | %r can't send %.2f OIL to %r. %r has a balance of %.2f",
             sender,
             amount / 100,
             receiver,
@@ -91,7 +107,7 @@ def send_money(
             balance / 100,
         )
         return
-    logger.info("SEND | %r sends %r %.2f LTC", sender, receiver, amount / 100)
+    logger.info("SEND | %r sends %r %.2f OIL", sender, receiver, amount / 100)
     chain.add_transaction({"sender": sender, "receiver": receiver, "amount": amount})
 
 
@@ -124,36 +140,10 @@ class TransactionScript:
 
 def main() -> None:
 
-    TransactionScript("transaction_script.txt", include_pending=True).run()
-
-    # names: tuple[str, ...] = ("alice", "bob", "charlie")
-
-    # for _ in range(10):
-    #     for _ in range(2):
-    #         sender, receiver = random.sample(names, k=2)
-    #         amount = random.randint(10, 100) * 100
-    #         send_money(sender, receiver, amount)
-
-    #     miner = random.choice(names)
-    #     mine_block(miner)
-
-    #     for name in names:
-    #         logger.debug(
-    #             "BLNC | %r current balance: %.2f", name, get_balance(name) / 100
-    #         )
-
-    # balance_alice = get_balance("alice")
-    # balance_bob = get_balance("bob")
-    # balance_charlie = get_balance("charlie")
-
-    # print(f"Alice currently owns {(balance_alice / 100):.2f} LTC")
-    # print(f"Bob currently owns {(balance_bob / 100):.2f} LTC")
-    # print(f"Charlie currently owns {(balance_charlie / 100):.2f} LTC")
+    # TransactionScript("transaction_script.txt", include_pending=True).run()
 
     with open("blockchain.json", "w", encoding="utf-8") as file:
         file.write(chain.to_json())
-
-    # visualize_balance("alice")
 
 
 if __name__ == "__main__":

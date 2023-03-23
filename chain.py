@@ -13,18 +13,8 @@ class Chain:
         self.chain: list[Block] = []
         self.pending_transactions: list[Tx] = []
         self.block_reward = 5000
-
-        if filepath:
-            try:
-                with open(filepath, encoding="utf-8") as file:
-                    data = json.load(file)
-                    self.chain = [Block(**kwargs) for kwargs in data["chain"]]
-                    self.pending_transactions = data["pending_transactions"]
-                    self.block_reward = data["block_reward"]
-                    logger.info("Created chain from file %r", filepath)
-            except (FileNotFoundError, json.decoder.JSONDecodeError):
-                self.create_genesis_block()
-                logger.warning("Could not open the provided file %r", filepath)
+        if filepath is not None:
+            self.load_chain(filepath)
         else:
             self.create_genesis_block()
 
@@ -35,6 +25,19 @@ class Chain:
     def create_genesis_block(self) -> None:
         self.add_block(miner="satoshi")
         logger.info("Created new chain with genesis block.")
+
+    def load_chain(self, filepath: str) -> None:
+
+        try:
+            with open(filepath, encoding="utf-8") as file:
+                data = json.load(file)
+                self.chain = [Block(**kwargs) for kwargs in data["chain"]]
+                self.pending_transactions = data["pending_transactions"]
+                self.block_reward = data["block_reward"]
+                logger.info("Created chain from file %r", filepath)
+        except (FileNotFoundError, json.decoder.JSONDecodeError):
+            self.create_genesis_block()
+            logger.warning("Could not open the provided file %r", filepath)
 
     def add_block(self, miner: str) -> Block:
         previous_hash = self.last_block.block_hash if self.chain else "0"
