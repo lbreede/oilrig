@@ -1,5 +1,4 @@
 import logging
-import time
 
 from chain import Chain
 
@@ -7,15 +6,14 @@ NAMES = ("alice", "bob", "charlie")
 logger = logging.getLogger("main".center(5))
 logging.basicConfig(
     format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
-    # datefmt="%Y-%m-%d,%H:%M:%S",
     level=logging.DEBUG,
 )
 logging.addLevelName(10, "DEBUG".center(10))
 logging.addLevelName(20, "INFO".center(10))
 logging.addLevelName(30, "WARNING".center(10))
 
-# chain = Chain()
-chain = Chain(filepath="blockchain.json")
+chain = Chain()
+# chain = Chain(filepath="blockchain.json")
 
 
 def mine_block(miner: str) -> None:
@@ -75,24 +73,6 @@ def get_balance(name: str, include_pending: bool = False) -> int:
     return balance
 
 
-def visualize_balance(name: str, max_balance: int = 100_000):
-
-    print("\n=== ALICE ===")
-    balance = 0
-    for i, block in enumerate(chain.chain):
-        for j, transaction in enumerate(block.transactions):
-            balance += get_gains(name, **transaction)
-            rel_balance = balance / max_balance
-            n_symbol_on = int(rel_balance * 88)
-            n_symbol_off = 88 - n_symbol_on
-            balance_fmt = f"{balance / 100:.2f}".ljust(6)
-            print(
-                f"Alice - Block {i + 1:03} - Tx {j + 1:03} - {balance_fmt} OIL [{'#' * n_symbol_on}{' ' * n_symbol_off}]"
-            )
-            time.sleep(0.2)
-    print("======")
-
-
 def send_money(
     sender: str, receiver: str, amount: int, include_pending: bool = False
 ) -> None:
@@ -140,7 +120,7 @@ class TransactionScript:
 
 def main() -> None:
 
-    # TransactionScript("transaction_script.txt", include_pending=True).run()
+    TransactionScript("transaction_script.txt", include_pending=True).run()
 
     with open("blockchain.json", "w", encoding="utf-8") as file:
         file.write(chain.to_json())
