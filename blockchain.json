@@ -1,11 +1,11 @@
 {
-    "block_reward": 5000,
+    "block_reward": 625,
     "chain": [
         {
-            "block_hash": "0063d006c6e2005288177bd74931e64bdbbc691b0dd6e5a3a1e8d3de7e1c348f",
-            "nonce": 167,
+            "block_hash": "00c94834865ae7340991a43ac6c48ab846c37ae77d53a68d676d07a55053eb3b",
+            "nonce": 37,
             "previous_hash": "0",
-            "timestamp": "2023-03-23T15:59:21.002999",
+            "timestamp": "2023-04-16T21:13:57.107752",
             "transactions": [
                 {
                     "amount": 5000,
@@ -15,10 +15,10 @@
             ]
         },
         {
-            "block_hash": "00d0ed65281c7af5aa44bb4aa6a82b7c43a9708d4cd85946545be258de6ffde8",
-            "nonce": 67,
-            "previous_hash": "0063d006c6e2005288177bd74931e64bdbbc691b0dd6e5a3a1e8d3de7e1c348f",
-            "timestamp": "2023-03-23T15:59:21.004401",
+            "block_hash": "00cd43598aa31ecbb65c4ceebe368702937b4e8e19721aacd3f791f4062ff41c",
+            "nonce": 62,
+            "previous_hash": "00c94834865ae7340991a43ac6c48ab846c37ae77d53a68d676d07a55053eb3b",
+            "timestamp": "2023-04-16T21:13:57.108131",
             "transactions": [
                 {
                     "amount": 5000,
@@ -28,39 +28,39 @@
             ]
         },
         {
-            "block_hash": "00c6883fce255b60250bd6dff4a3d6ce66b9a75e8525e612b5bde07f9a229529",
-            "nonce": 210,
-            "previous_hash": "00d0ed65281c7af5aa44bb4aa6a82b7c43a9708d4cd85946545be258de6ffde8",
-            "timestamp": "2023-03-23T15:59:21.004981",
+            "block_hash": "00b2face6c92f705ed3a24ee5cca983b6cdc6a430800caf2473a55eda9dac972",
+            "nonce": 407,
+            "previous_hash": "00cd43598aa31ecbb65c4ceebe368702937b4e8e19721aacd3f791f4062ff41c",
+            "timestamp": "2023-04-16T21:13:57.108651",
             "transactions": [
                 {
-                    "amount": 5000,
+                    "amount": 2500,
                     "receiver": "ALICE",
                     "sender": null
                 }
             ]
         },
         {
-            "block_hash": "00d8dd1edf580f36557267f8f8119982de080f5fb1877df1c447750b1dbc8b66",
-            "nonce": 32,
-            "previous_hash": "00c6883fce255b60250bd6dff4a3d6ce66b9a75e8525e612b5bde07f9a229529",
-            "timestamp": "2023-03-23T15:59:21.006503",
+            "block_hash": "002d3622d3e3d6c0d8ef42d5d5f68fc97c101beceeb9c2848c412ab5706c3b95",
+            "nonce": 120,
+            "previous_hash": "00b2face6c92f705ed3a24ee5cca983b6cdc6a430800caf2473a55eda9dac972",
+            "timestamp": "2023-04-16T21:13:57.110831",
             "transactions": [
                 {
-                    "amount": 5000,
+                    "amount": 2500,
                     "receiver": "ALICE",
                     "sender": null
                 }
             ]
         },
         {
-            "block_hash": "00cd301705c88024b05ef51799e17be45969b6f2369893aad21c95a93adb9c6b",
-            "nonce": 101,
-            "previous_hash": "00d8dd1edf580f36557267f8f8119982de080f5fb1877df1c447750b1dbc8b66",
-            "timestamp": "2023-03-23T15:59:21.006912",
+            "block_hash": "00c37865f09c5fe4933244b9bad09d5c66449862c60197abcd8b2acd6323e447",
+            "nonce": 398,
+            "previous_hash": "002d3622d3e3d6c0d8ef42d5d5f68fc97c101beceeb9c2848c412ab5706c3b95",
+            "timestamp": "2023-04-16T21:13:57.111581",
             "transactions": [
                 {
-                    "amount": 5000,
+                    "amount": 1250,
                     "receiver": "CHARLIE",
                     "sender": null
                 },
@@ -77,13 +77,13 @@
             ]
         },
         {
-            "block_hash": "000d5401830e36938bf718ef4a75ce8d9cc446b4fdfb7bef71faa42285bb4d42",
-            "nonce": 16,
-            "previous_hash": "00cd301705c88024b05ef51799e17be45969b6f2369893aad21c95a93adb9c6b",
-            "timestamp": "2023-03-23T15:59:21.008028",
+            "block_hash": "00ac199ce512d2d5688d1bd13266f1aa2146ca0ddfcc412288630e61641eef12",
+            "nonce": 136,
+            "previous_hash": "00c37865f09c5fe4933244b9bad09d5c66449862c60197abcd8b2acd6323e447",
+            "timestamp": "2023-04-16T21:13:57.114944",
             "transactions": [
                 {
-                    "amount": 5000,
+                    "amount": 1250,
                     "receiver": "ALICE",
                     "sender": null
                 },
@@ -95,13 +95,13 @@
             ]
         },
         {
-            "block_hash": "008454dc0a37a5b67aff13987318e3011e137e0fb54774f22441b88a3a5c1165",
-            "nonce": 22,
-            "previous_hash": "000d5401830e36938bf718ef4a75ce8d9cc446b4fdfb7bef71faa42285bb4d42",
-            "timestamp": "2023-03-23T15:59:21.008241",
+            "block_hash": "009005c8ee491fe795afde24b6b8150e25de32ab7de9ff9f61a38e00b9a6067b",
+            "nonce": 15,
+            "previous_hash": "00ac199ce512d2d5688d1bd13266f1aa2146ca0ddfcc412288630e61641eef12",
+            "timestamp": "2023-04-16T21:13:57.115919",
             "transactions": [
                 {
-                    "amount": 5000,
+                    "amount": 625,
                     "receiver": "ALICE",
                     "sender": null
                 }

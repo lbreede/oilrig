@@ -2,21 +2,24 @@ import json
 import logging
 from typing import Optional
 
-from block import Block
-from custom_types import Tx
+from src.block import Block
+from src.custom_types import Tx
 
 logger = logging.getLogger("chain".center(5))
 
 
 class Chain:
+    HALVING_INTERVAL = 2
+
     def __init__(self, filepath: Optional[str] = None) -> None:
         self.chain: list[Block] = []
         self.pending_transactions: list[Tx] = []
         self.block_reward = 5000
-        if filepath is not None:
-            self.load_chain(filepath)
-        else:
+
+        if filepath is None:
             self.create_genesis_block()
+        else:
+            self.load_chain(filepath)
 
     @property
     def last_block(self) -> Block:
@@ -24,10 +27,9 @@ class Chain:
 
     def create_genesis_block(self) -> None:
         self.add_block(miner="satoshi")
-        logger.info("Created new chain with genesis block.")
+        logger.info("GENESIS  | Created new chain with genesis block.")
 
     def load_chain(self, filepath: str) -> None:
-
         try:
             with open(filepath, encoding="utf-8") as file:
                 data = json.load(file)
@@ -50,7 +52,7 @@ class Chain:
         block = Block(previous_hash, self.pending_transactions)
         self.chain.append(block)
 
-        if len(self.chain) % 100 == 0:
+        if len(self.chain) % self.HALVING_INTERVAL == 0:
             self.block_reward //= 2
 
         self.pending_transactions = []
@@ -62,7 +64,6 @@ class Chain:
 
     def is_valid(self) -> bool:
         for i, block in enumerate(self.chain):
-
             if not block.is_valid():
                 logger.critical("Block %d is invalid", i)
                 return False

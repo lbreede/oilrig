@@ -4,7 +4,7 @@ from datetime import datetime
 from hashlib import sha256
 from typing import Optional
 
-from custom_types import Tx
+from src.custom_types import Tx
 
 logger = logging.getLogger("block".center(5))
 
@@ -15,23 +15,36 @@ class Block:
         previous_hash: str,
         transactions: list[Tx],
         timestamp: Optional[str] = None,
-        nonce: int = 0,
+        nonce: int = -1,
+        difficulty: int = 4,
         block_hash: Optional[str] = None,
     ):
         self.previous_hash = previous_hash
         self.transactions = transactions
         self.timestamp: str = timestamp or datetime.now().isoformat()
         self.nonce: int = nonce
+        self.difficulty = difficulty
         self.block_hash = block_hash or self._mine()
 
-    def _mine(self, difficulty: int = 2) -> str:
-        while not self.current_hash().startswith("0" * difficulty):
+    def _mine(self) -> str:
+        """Mines the block.
+
+        Returns:
+            The block hash.
+
+        """
+        while not self.current_hash().startswith("0" * self.difficulty):
             self.nonce += 1
         return self.current_hash()
 
     def current_hash(self) -> str:
+        """Returns the current hash of the block.
 
-        header: str = (
+        Returns:
+            The current hash of the block.
+
+        """
+        header = (
             self.previous_hash
             + json.dumps(self.transactions)
             + self.timestamp
@@ -40,10 +53,32 @@ class Block:
         return sha256(header.encode()).hexdigest()
 
     def is_valid(self) -> bool:
+        """Checks if the block is valid.
+
+        A block is valid if the block hash starts with the specified number of
+        zeros.
+
+        Returns:
+            True if the block is valid, False otherwise.
+
+        """
         return self.block_hash == self.current_hash()
 
     @staticmethod
-    def shortened_hash(hash_: str, left: int = 4, right: int = 4):
+    def shortened_hash(hash_: str, left: int = 4, right: int = 4) -> str:
+        """Shortens a hash to a specified length.
+
+        Args:
+            hash_: The hash to shorten.
+            left: The number of characters to keep from the beginning of the hash.
+                Defaults to 4.
+            right: The number of characters to keep from the end of the hash.
+                Defaults to 4.
+
+        Returns:
+            The shortened hash.
+
+        """
         if len(hash_) <= left + 3 + right:
             return hash_
         return f"{hash_[:left]}...{hash_[-right:]}"

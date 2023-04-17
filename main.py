@@ -1,6 +1,6 @@
 import logging
 
-from chain import Chain
+from src.chain import Chain
 
 NAMES = ("alice", "bob", "charlie")
 logger = logging.getLogger("main".center(5))
@@ -21,11 +21,12 @@ def mine_block(miner: str) -> None:
 
     Args:
         miner (str): The name of the miner
+
     """
     block = chain.add_block(miner)
     award = block.transactions[0]["amount"]
     logger.info(
-        "MINE | %r mined a new block and was awarded %.2f OIL", miner, award / 100
+        "  MINE   | %r mined a new block and was awarded %.2f OIL", miner, award / 100
     )
 
 
@@ -33,13 +34,14 @@ def get_gains(name: str, sender: str, receiver: str, amount: int) -> int:
     """Get the gains of a user
 
     Args:
-        name (str): The name of the user
-        sender (str): The name of the sender
-        receiver (str): The name of the receiver
-        amount (int): The amount of money
+        name: The name of the user
+        sender: The name of the sender
+        receiver: The name of the receiver
+        amount: The amount of money
 
     Returns:
-        int: The gains of the user
+        The gains of the user
+
     """
     balance = 0
     balance += amount if receiver == name else 0
@@ -76,10 +78,19 @@ def get_balance(name: str, include_pending: bool = False) -> int:
 def send_money(
     sender: str, receiver: str, amount: int, include_pending: bool = False
 ) -> None:
+    """Send money from one user to another.
+
+    Args:
+        sender: The name of the sender
+        receiver: The name of the receiver
+        amount: The amount of money
+        include_pending: Whether to include pending transactions.
+
+    """
     balance = get_balance(sender, include_pending)
     if amount > balance:
         logger.warning(
-            "SEND | %r can't send %.2f OIL to %r. %r has a balance of %.2f",
+            "  SEND   | %r can't send %.2f OIL to %r. %r has a balance of %.2f",
             sender,
             amount / 100,
             receiver,
@@ -87,16 +98,30 @@ def send_money(
             balance / 100,
         )
         return
-    logger.info("SEND | %r sends %r %.2f OIL", sender, receiver, amount / 100)
+    logger.info("  SEND   | %r sends %r %.2f OIL", sender, receiver, amount / 100)
     chain.add_transaction({"sender": sender, "receiver": receiver, "amount": amount})
 
 
 class TransactionScript:
+    """A class that will read a script file and execute the operations."""
+
     def __init__(self, filepath: str, include_pending: bool = False) -> None:
+        """Initialize the TransactionScript.
+
+        Args:
+            filepath: The path to the script file
+            include_pending: Whether to include pending transactions.
+
+        """
         self.filepath = filepath
         self.include_pending = include_pending
 
     def run(self) -> None:
+        """Run the script.
+
+        This function will read the script file and execute the operations.
+
+        """
         with open(self.filepath, encoding="utf-8") as file:
             for line in file:
                 operation, *args = line.split()
@@ -109,17 +134,31 @@ class TransactionScript:
                         pass
 
     def _mine(self, miner: str, repeat: str = "1x") -> None:
+        """Mine a new block. The miner will be awarded with a certain amount of OIL.
+
+        Args:
+            miner: The name of the miner
+            repeat: The number of times to repeat the operation in the format '\\d+x'
+
+        """
         for _ in range(int(repeat[:-1])):
             mine_block(miner)
 
     def _send(self, amount: str, sender: str, receiver: str) -> None:
+        """Send money from one user to another.
+
+        Args:
+            amount: The amount of money
+            sender: The name of the sender
+            receiver: The name of the receiver
+
+        """
         send_money(
             sender, receiver, int(amount) * 100, include_pending=self.include_pending
         )
 
 
 def main() -> None:
-
     TransactionScript("transaction_script.txt", include_pending=True).run()
 
     with open("blockchain.json", "w", encoding="utf-8") as file:
