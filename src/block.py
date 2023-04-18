@@ -6,7 +6,7 @@ from typing import Optional
 
 from src.custom_types import Tx
 
-logger = logging.getLogger("block".center(5))
+logger = logging.getLogger(__name__)
 
 
 class Block:
@@ -29,10 +29,14 @@ class Block:
     def _mine(self) -> str:
         """Mines the block.
 
+        NOTE: The block is mined in the block class since the nonce can be accessed
+        without having to pass it as an argument and without having to return it.
+
         Returns:
             The block hash.
 
         """
+        logger.info("Mining block with difficulty %d...", self.difficulty)
         while not self.current_hash().startswith("0" * self.difficulty):
             self.nonce += 1
         return self.current_hash()

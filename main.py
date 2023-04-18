@@ -2,16 +2,14 @@ import logging
 
 from src.chain import Chain
 
-NAMES = ("alice", "bob", "charlie")
-logger = logging.getLogger("main".center(5))
+logger = logging.getLogger(__name__)
+
 logging.basicConfig(
-    format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
+    # format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
     level=logging.DEBUG,
 )
-logging.addLevelName(10, "DEBUG".center(10))
-logging.addLevelName(20, "INFO".center(10))
-logging.addLevelName(30, "WARNING".center(10))
 
+NAMES = ("alice", "bob", "charlie")
 chain = Chain()
 # chain = Chain(filepath="blockchain.json")
 
@@ -23,11 +21,10 @@ def mine_block(miner: str) -> None:
         miner (str): The name of the miner
 
     """
-    block = chain.add_block(miner)
-    award = block.transactions[0]["amount"]
-    logger.info(
-        "  MINE   | %r mined a new block and was awarded %.2f OIL", miner, award / 100
-    )
+    # block =
+    chain.add_block(miner)
+    # award = block.transactions[0]["amount"]
+    # logger.info("%r mined a new block and was awarded %.2f OIL", miner, award / 100)
 
 
 def get_gains(name: str, sender: str, receiver: str, amount: int) -> int:
@@ -89,16 +86,16 @@ def send_money(
     """
     balance = get_balance(sender, include_pending)
     if amount > balance:
-        logger.warning(
-            "  SEND   | %r can't send %.2f OIL to %r. %r has a balance of %.2f",
-            sender,
-            amount / 100,
-            receiver,
-            sender,
-            balance / 100,
-        )
+        # logger.warning(
+        #     "%r can't send %.2f OIL to %r. %r has a balance of %.2f",
+        #     sender,
+        #     amount / 100,
+        #     receiver,
+        #     sender,
+        #     balance / 100,
+        # )
         return
-    logger.info("  SEND   | %r sends %r %.2f OIL", sender, receiver, amount / 100)
+    # logger.info("%r sends %r %.2f OIL", sender, receiver, amount / 100)
     chain.add_transaction({"sender": sender, "receiver": receiver, "amount": amount})
 
 
@@ -161,8 +158,11 @@ class TransactionScript:
 def main() -> None:
     TransactionScript("transaction_script.txt", include_pending=True).run()
 
-    with open("blockchain.json", "w", encoding="utf-8") as file:
-        file.write(chain.to_json())
+    with open("blockchain.json", "w", encoding="utf-8") as fp:
+        fp.write(chain.to_json())
+
+    with open("blockchain.yaml", "w", encoding="utf-8") as fp:
+        fp.write(chain.to_yaml())
 
 
 if __name__ == "__main__":

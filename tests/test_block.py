@@ -1,7 +1,9 @@
 import hashlib
 import unittest
-from src.block import Block
+
 import coverage
+
+from src.block import Block
 
 cov = coverage.Coverage()
 cov.start()

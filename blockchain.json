@@ -2,10 +2,11 @@
     "block_reward": 625,
     "chain": [
         {
-            "block_hash": "00c94834865ae7340991a43ac6c48ab846c37ae77d53a68d676d07a55053eb3b",
-            "nonce": 37,
+            "block_hash": "f847ae02398b72cd518cd455c4ba065365d246e1cd9eae1bb09e7b1cdd4bd928",
+            "difficulty": 0,
+            "nonce": -1,
             "previous_hash": "0",
-            "timestamp": "2023-04-16T21:13:57.107752",
+            "timestamp": "2023-04-17T23:14:01.691924",
             "transactions": [
                 {
                     "amount": 5000,
@@ -15,10 +16,11 @@
             ]
         },
         {
-            "block_hash": "00cd43598aa31ecbb65c4ceebe368702937b4e8e19721aacd3f791f4062ff41c",
-            "nonce": 62,
-            "previous_hash": "00c94834865ae7340991a43ac6c48ab846c37ae77d53a68d676d07a55053eb3b",
-            "timestamp": "2023-04-16T21:13:57.108131",
+            "block_hash": "07a368f28f6ff1c54929940dc2b514c9aa7dab5b346c10280d225d7564b57725",
+            "difficulty": 1,
+            "nonce": 4,
+            "previous_hash": "f847ae02398b72cd518cd455c4ba065365d246e1cd9eae1bb09e7b1cdd4bd928",
+            "timestamp": "2023-04-17T23:14:01.692305",
             "transactions": [
                 {
                     "amount": 5000,
@@ -28,10 +30,11 @@
             ]
         },
         {
-            "block_hash": "00b2face6c92f705ed3a24ee5cca983b6cdc6a430800caf2473a55eda9dac972",
-            "nonce": 407,
-            "previous_hash": "00cd43598aa31ecbb65c4ceebe368702937b4e8e19721aacd3f791f4062ff41c",
-            "timestamp": "2023-04-16T21:13:57.108651",
+            "block_hash": "00045f5ca09377188312e37cf054cf281da6caef1f4ef45f7ff599b3b7412594",
+            "difficulty": 2,
+            "nonce": 409,
+            "previous_hash": "07a368f28f6ff1c54929940dc2b514c9aa7dab5b346c10280d225d7564b57725",
+            "timestamp": "2023-04-17T23:14:01.692509",
             "transactions": [
                 {
                     "amount": 2500,
@@ -41,10 +44,11 @@
             ]
         },
         {
-            "block_hash": "002d3622d3e3d6c0d8ef42d5d5f68fc97c101beceeb9c2848c412ab5706c3b95",
-            "nonce": 120,
-            "previous_hash": "00b2face6c92f705ed3a24ee5cca983b6cdc6a430800caf2473a55eda9dac972",
-            "timestamp": "2023-04-16T21:13:57.110831",
+            "block_hash": "0006e539f06c523e96cca6a39e5315891b6ebdda2bad69eff0c25487b98e4717",
+            "difficulty": 3,
+            "nonce": 7425,
+            "previous_hash": "00045f5ca09377188312e37cf054cf281da6caef1f4ef45f7ff599b3b7412594",
+            "timestamp": "2023-04-17T23:14:01.694584",
             "transactions": [
                 {
                     "amount": 2500,
@@ -54,10 +58,11 @@
             ]
         },
         {
-            "block_hash": "00c37865f09c5fe4933244b9bad09d5c66449862c60197abcd8b2acd6323e447",
-            "nonce": 398,
-            "previous_hash": "002d3622d3e3d6c0d8ef42d5d5f68fc97c101beceeb9c2848c412ab5706c3b95",
-            "timestamp": "2023-04-16T21:13:57.111581",
+            "block_hash": "0000645f55b8d7e114c1eb88392d6dead920b3f2bff92984452bfa6b06c58e7a",
+            "difficulty": 4,
+            "nonce": 48173,
+            "previous_hash": "0006e539f06c523e96cca6a39e5315891b6ebdda2bad69eff0c25487b98e4717",
+            "timestamp": "2023-04-17T23:14:01.738309",
             "transactions": [
                 {
                     "amount": 1250,
@@ -77,10 +82,11 @@
             ]
         },
         {
-            "block_hash": "00ac199ce512d2d5688d1bd13266f1aa2146ca0ddfcc412288630e61641eef12",
-            "nonce": 136,
-            "previous_hash": "00c37865f09c5fe4933244b9bad09d5c66449862c60197abcd8b2acd6323e447",
-            "timestamp": "2023-04-16T21:13:57.114944",
+            "block_hash": "000d1ca639272e29d106cd8a6f574474648a66c76da6d93cf20e93ed98cb38fe",
+            "difficulty": 3,
+            "nonce": 76,
+            "previous_hash": "0000645f55b8d7e114c1eb88392d6dead920b3f2bff92984452bfa6b06c58e7a",
+            "timestamp": "2023-04-17T23:14:02.083298",
             "transactions": [
                 {
                     "amount": 1250,
@@ -95,10 +101,11 @@
             ]
         },
         {
-            "block_hash": "009005c8ee491fe795afde24b6b8150e25de32ab7de9ff9f61a38e00b9a6067b",
-            "nonce": 15,
-            "previous_hash": "00ac199ce512d2d5688d1bd13266f1aa2146ca0ddfcc412288630e61641eef12",
-            "timestamp": "2023-04-16T21:13:57.115919",
+            "block_hash": "00000c61b32b3cef7ce53365aeda762c0f8c928d410a2405db0a58912b67f866",
+            "difficulty": 4,
+            "nonce": 4580,
+            "previous_hash": "000d1ca639272e29d106cd8a6f574474648a66c76da6d93cf20e93ed98cb38fe",
+            "timestamp": "2023-04-17T23:14:02.084056",
             "transactions": [
                 {
                     "amount": 625,
@@ -108,5 +115,6 @@
             ]
         }
     ],
+    "difficulty": 5,
     "pending_transactions": []
 }
