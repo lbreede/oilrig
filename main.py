@@ -161,9 +161,6 @@ def main() -> None:
     with open("blockchain.json", "w", encoding="utf-8") as fp:
         fp.write(chain.to_json())
 
-    with open("blockchain.yaml", "w", encoding="utf-8") as fp:
-        fp.write(chain.to_yaml())
-
 
 if __name__ == "__main__":
     main()
