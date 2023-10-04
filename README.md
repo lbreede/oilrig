@@ -1,4 +1,7 @@
-# blockchain-py
-A python blockchain for educational purposes.
+# oilrig
+## A Blockchain written in Python
 
-## Getting Started
+For educational and learning purposes.
+
+> _Computerworld_ called the marketing of such privatized blockchains without a proper security model "snake oil"
+> - Wikipedia
